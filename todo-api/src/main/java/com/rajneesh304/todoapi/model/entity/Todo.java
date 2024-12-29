@@ -13,6 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "TODO")
 @Builder
+@Data
 public class Todo {
     @Id
     @Column(name = "id")
@@ -25,4 +26,8 @@ public class Todo {
 
     @Column(name = "status")
     private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "todo_list", nullable = false)
+    private TodoList todoList;
 }
